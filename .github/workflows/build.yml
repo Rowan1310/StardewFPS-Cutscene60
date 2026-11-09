@@ -1,0 +1,36 @@
+name: Build StardewFPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore StardewFPS.vbproj
+
+      - name: Build DLL
+        run: dotnet build StardewFPS.vbproj --configuration Release --no-restore
+
+      - name: Upload compiled files
+        uses: actions/upload-artifact@v4
+        with:
+          name: StardewFPS-Cutscene60
+          path: bin/Release/
+          if-no-files-found: error
