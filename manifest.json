@@ -1,0 +1,9 @@
+{
+  "Name": "StardewFPS - Cutscene 60 FPS",
+  "Author": "Lake1059 (modified source patch)",
+  "Version": "1.1.0",
+  "Description": "Allows custom gameplay FPS while locking in-game events/cutscenes to 60 FPS.",
+  "UniqueID": "Lake1059.StardewFPS",
+  "EntryDll": "StardewFPS.dll",
+  "MinimumApiVersion": "4.0.0"
+}
